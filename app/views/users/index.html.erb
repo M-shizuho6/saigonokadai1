@@ -1,0 +1,33 @@
+<div class="page_box container">
+	<div class="row">
+
+<% if false %>----ここから---------<% end %>
+<%= render 'users/sidebar2', post: @post, user: current_user %>
+<% if false %>-------ここまで------<% end %>
+
+<main class="col-xs-9">
+	<h1>Users</h1>
+	<table class="table">
+	<thead>
+		<tr>
+			<th>image</th>
+			<th>name</th>
+			<th></th>
+		</tr>
+	</thead>
+		<% @user.each do |user| %>
+		<tr>
+			<td><%= attachment_image_tag user, :profile_image,fallback: "no_image.jpg", class: "main_user_img" %></td>
+			<td><%= user.name %></td>
+			<td><%= link_to 'show', user_path(user.id) %></td>
+		</tr>
+		<% end %>
+	</table>
+</main>
+
+	</div>
+</div>
+
+<%= render 'home/footer' %>
+
+

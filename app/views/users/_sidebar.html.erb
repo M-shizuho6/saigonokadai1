@@ -1,0 +1,31 @@
+<div class="sidebar col-xs-3">
+	<div class="user_info">
+		<h1>User info</h1>
+		<%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"sidebar-user-img" %>
+		<table class="table">
+			<tr>
+				<th>name</th>
+				<th><%= current_user.name %></th>
+			</tr>
+			<tr>
+				<th>introduction</th>
+				<th><%= current_user.introduction %></th>
+			</tr>
+		</table>
+		<div class="row"><%= link_to "", edit_user_path(current_user.id), class:"btn btn-default glyphicon glyphicon-wrench col-xs-12" %>
+		</div>
+	</div>
+		<h1 class="new-book-title">New book</h1>
+		<%= form_for(post) do |f| %>
+	<div class="New_book">
+		<p><%= f.label :title,"Title" %></p>
+		<p><%= f.text_field :title, class:"col-xs-12" %></p>
+
+		<p><%= f.label :body,"Opinion" %></p>
+		<p><%= f.text_area :body, class:"col-xs-12" %></p>
+
+		<%= f.submit 'Create Book', class:"create-book-button btn btn-primary col-xs-12" %>
+		<% end %>
+	</div>
+
+</div>

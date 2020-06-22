@@ -1,0 +1,40 @@
+
+	<div class="container">
+	<div class="row">
+	<h1>Editing Book</h1>
+<% if @post.errors.any? %>
+<div id ="error_explanation" class="error">
+<h2><%= @post.errors.count %>error prohibited this odj from being saved:</h2>
+	<ul>
+		<% @post.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+	<%= form_for(@post) do |f| %>
+
+	<P><strong>
+		<%= f.label :title, "Title" %>
+		</strong>
+	</P>
+		<p><%= f.text_field :title, class:"col-xs-12 field" %></p>
+
+	<P><strong>
+		<%= f.label :body, "Opinion" %>
+		</strong>
+	</P>
+		<p><%= f.text_area :body, class:"col-xs-12 field" %></p>
+
+		<%= f.submit "Update Book", class:"field btn btn-primary col-xs-12" %>
+
+	<% end %>
+
+	<p><%= link_to 'Show', book_path(@post.id) %> | <%= link_to 'Back', books_path %>
+	</p>
+
+	</div>
+	</div>
+
+<%= render 'home/footer' %>

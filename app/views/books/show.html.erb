@@ -1,0 +1,37 @@
+<div class="page_box">
+
+	<div class="container">
+	<div class= "row">
+
+	<% if flash[:notice] %>
+	<p><%= flash[:notice] %></p>
+	<% end %>
+
+	
+	<%= render 'users/sidebar2', user: @user, post: @post %>
+
+	<main class="col-xs-9">
+		<h1>Book detail</h1>
+		<table class="table">
+			<tr>
+				<td>
+					<%= attachment_image_tag @user, :profile_image,fallback: "no_image.jpg", class: "main_user_img" %>
+					<p>
+					<%= link_to "#{@user.name}", user_path(@user.id) %>
+					</p>
+				</td>
+				<td><%= @posts.title %></td>
+				<td><%= @posts.body %></td>
+			<% if @user.id == current_user.id %>
+				<td><%= link_to 'Edit', edit_book_path(@posts.id), class:"btn btn-success" %>
+				</td>
+				<td><%= link_to 'Destroy', book_path, method: :delete, data: { confirm: '本当に消しますか？' }, class:"btn btn-danger" %></td>
+			<% end %>
+			</tr>
+		</table>
+	</main>
+	</div>
+	</div>
+</div>
+
+<%= render 'home/footer' %>

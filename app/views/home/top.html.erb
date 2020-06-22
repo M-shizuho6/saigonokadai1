@@ -1,0 +1,18 @@
+
+<div class=container>
+<%= render 'devise/sessions/flash' %>
+<h1>welcome to<span class="glyphicon glyphicon-book"><strong>Bookers !!</strong></span></h1>
+<p class="top-text">In <span class="glyphicon glyphicon-book"><strong>Bookers,</strong></span><br>
+you can share and exchange your opinions,inpressions,and emotions<br>
+about varioius books!</p>
+
+<div>
+	<p class="top-list-box"><%= link_to "Log in", new_user_session_path, class:"btn btn-info top-list" %>
+	</p>
+	<p class="top-list-box"><%= link_to "sign up", new_user_registration_path, class:"btn btn-success top-list" %>
+	</p>
+</div>
+
+</div>
+
+<%= render 'home/footer' %>
